@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barbearia Imperial</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#101010;color:#f5f0e7;font-family:Arial,sans-serif}
+header{padding:22px 7%;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #393023}
+.logo{font-weight:bold;letter-spacing:2px}
+.logo span,h1 span,h2 span{color:#d6ad60}
+a{color:inherit;text-decoration:none}
+.btn{display:inline-block;background:#d6ad60;color:#17130b;padding:14px 20px;border-radius:4px;font-weight:bold}
+.hero{padding:85px 7%;min-height:440px;background:radial-gradient(ellipse at 80% 50%,#493719,#101010 65%)}
+.tag{color:#d6ad60;letter-spacing:3px;font-size:12px}
+h1{font-size:clamp(42px,8vw,76px);line-height:1.05;margin:20px 0}
+p{color:#b8b2a8;line-height:1.8}
+.hero p{max-width:450px}
+section{padding:60px 7%}
+h2{font-size:34px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:#1b1b1b;border:1px solid #3a3225;padding:24px;border-radius:5px}
+.card h3{margin-bottom:8px}
+.price{color:#d6ad60;font-size:23px;font-weight:bold}
+.about{background:#191713}
+form{max-width:500px;display:grid;gap:14px}
+input,select{padding:14px;background:#1b1b1b;color:white;border:1px solid #655337;border-radius:4px;width:100%}
+button{border:0;cursor:pointer;font-size:15px}
+footer{text-align:center;padding:25px;color:#aaa;border-top:1px solid #393023}
+@media(max-width:650px){.cards{grid-template-columns:1fr}.hero{padding-top:65px}header{gap:12px}.logo{font-size:13px}header .btn{font-size:11px;padding:12px}}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">BARBEARIA <span style="color:#d6ad60">IMPERIAL</span></div>
+<a class="btn" href="#agendar">AGENDAR</a>
+</header>
+
+<main>
+<div class="hero">
+<div class="tag">ESTILO • TRADIÇÃO • ATITUDE</div>
+<h1>Seu estilo.<br><span>Suas regras.</span></h1>
+<p>Um bom corte muda o visual. Um atendimento de qualidade muda a experiência. Venha conhecer nossa barbearia!</p>
+<a class="btn" href="#servicos">CONHECER SERVIÇOS ↗</a>
+</div>
+
+<section id="servicos">
+<div class="tag">NOSSO CARDÁPIO</div>
+<h2>Escolha seu <span>estilo.</span></h2>
+<p>Confira nossos serviços e escolha o seu próximo visual.</p>
+<div class="cards">
+<div class="card">
+<div class="tag">01 / CABELO</div>
+<h3>Corte tradicional</h3>
+<p>Um corte caprichado do seu jeito.</p>
+<div class="price">R$ 35</div>
+</div>
+<div class="card">
+<div class="tag">02 / DEGRADÊ</div>
+<h3>Degradê (Fade)</h3>
+<p>Acabamento moderno e preciso.</p>
+<div class="price">R$ 40</div>
+</div>
+<div class="card">
+<div class="tag">03 / BARBA</div>
+<h3>Barba na régua</h3>
+<p>Contorno alinhado e bem cuidado.</p>
+<div class="price">R$ 25</div>
+</div>
+</div>
+<p><small>Preços demonstrativos: confirme os valores com a barbearia.</small></p>
+</section>
+
+<section class="about">
+<div class="tag">NOSSO DIFERENCIAL</div>
+<h2>Detalhes que fazem <span>a diferença.</span></h2>
+<p>Atendimento atencioso, ambiente confortável e um visual pensado para você.</p>
+</section>
+
+<section id="agendar">
+<div class="tag">RESERVE SEU HORÁRIO</div>
+<h2>Vamos marcar?</h2>
+<p>Preencha os dados para preparar sua mensagem de agendamento.</p>
+<form id="form">
+<label>Seu nome<input id="nome" placeholder="Digite seu nome" required></label>
+<label>Serviço
+<select id="servico" required>
+<option value="">Escolha um serviço</option>
+<option>Corte tradicional - R$ 35</option>
+<option>Degradê - R$ 40</option>
+<option>Barba - R$ 25</option>
+</select></label>
+<label>Dia desejado<input id="dia" type="date" required></label>
+<button class="btn" type="submit">CONTINUAR PELO WHATSAPP ↗</button>
+<p id="aviso" style="font-size:12px"></p>
+</form>
+</section>
+</main>
+<footer>© 2026 Barbearia Imperial • Site demonstrativo</footer>
+<script>
+document.getElementById('form').addEventListener('submit',function(e){
+e.preventDefault();
+const nome=document.getElementById('nome').value;
+const servico=document.getElementById('servico').value;
+const dia=document.getElementById('dia').value;
+const telefone='5511999999999';
+const mensagem='Olá! Sou '+nome+'. Gostaria de agendar '+servico+' para o dia '+dia+'.';
+document.getElementById('aviso').textContent='Atenção: troque o número de demonstração pelo WhatsApp real antes de publicar.';
+window.open('https://wa.me/'+telefone+'?text='+encodeURIComponent(mensagem),'_blank');
+});
+</script>
+</body>
+</html>
